@@ -15,15 +15,6 @@
         padding-top: 60px;
         padding-bottom: 40px;
       }
-
-      #viewport {
-        overflow: auto;  
-      }
-
-      #map {
-        max-width: none;
-        overflow: auto;
-      }
     </style>
     <!-- <link href="assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
 
@@ -49,13 +40,13 @@
           <a class="brand" href="index.html">Media and Yellowstone</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="index.html">Home</a></li>
               <li class="divider-vertical"></li>
               <li><a href="paintings.html">Paintings</a></li>
               <li><a href="photographs.html">Photographs</a></li>
               <li><a href="newspapers.html">Newspapers</a></li>
               <li class="divider-vertical"></li>
-              <li><a href="timeline.html">Timeline</a></li>
+              <li class="active"><a href="timeline.html">Timeline</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -64,28 +55,9 @@
 
     <div class="container">
 
-      <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-        <h1>Welcome!</h1>
-        <p>This website offers an online exhibit exploring the impact of media on the most well-known national park in the United States, Yellowstone! We hope you enjoy looking through the galleries of images and other features and maybe even learn something in the process. Try scrolling or dragging your way around the map below to get an idea of Yellowstone's topography.</p>
-      </div>
-
-      <!-- 
-      <ul class="thumbnails">
-        <li class="span12">
-          <a href="#" class="thumbnail">
-            <img src="assets/img/ywstone.jpg" alt="Map of Yellowstone" class="dragger" />
-          </a>
-        </li>
-      </ul>
-      -->
-
-      <!-- Example row of columns -->
       <div class="row">
         <div class="span12">
-          <div id="viewport" class="dragger">
-            <img id="map" src="assets/img/ywstone.jpg" alt="Map of Yellowstone" class="dragger" />
-          </div>
+          <iframe src='http://embed.verite.co/timeline/?source=0AlqG-XtIUh1vdHB2Szh6S3pTMlcyMEJ3SUdvLVpfOFE&font=Bevan-PotanoSans&maptype=toner&lang=en&width=900&height=650' width='900' height='650' frameborder='0'></iframe>
         </div>
       </div>
 
