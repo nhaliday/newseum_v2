@@ -20,6 +20,14 @@
         background-repeat: no-repeat;
         background-size: 2129px 2550px;
       }
+
+      /*
+      #viewport {
+        overflow: auto;
+      }
+      */
+
+
     </style>
     <!-- <link href="assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
 
@@ -42,7 +50,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="index.html">Media and Yellowstone</a>
+          <a class="brand" href="index.htmls">Media and Yellowstone</a>
           <div class="nav-collapse">
             <ul class="nav">
               <li class="active"><a href="index.html">Home</a></li>
@@ -63,25 +71,20 @@
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
         <h1>Welcome!</h1>
-        <p>This website offers an online exhibit exploring the impact of media on the most well-known national park in the United States, Yellowstone! We hope you enjoy looking through the galleries of images and other features and maybe even learn something in the process. Try scrolling or dragging your way around the map below to get an idea of Yellowstone's topography.</p>
+        <p>This website offers an online exhibit exploring the impact of media on the most well-known national park in the United States, Yellowstone! We hope you enjoy looking through the galleries of images and other features and maybe even learn something in the process. Try moving your mouse around the viewport below to get an idea of Yellowstone's topography.</p>
       </div>
-
-      <!-- 
-      <ul class="thumbnails">
-        <li class="span12">
-          <a href="#" class="thumbnail">
-            <img src="assets/img/ywstone.jpg" alt="Map of Yellowstone" class="dragger" />
-          </a>
-        </li>
-      </ul>
-      -->
 
       <!-- Example row of columns -->
       <div class="row">
         <div class="span12">
+          <div id="viewport">
+          </div>
+
+          <!--
           <div id="viewport" class="dragger">
             <img id="map" src="assets/img/ywstone.jpg" alt="Map of Yellowstone" class="dragger" />
           </div>
+          -->
         </div>
       </div>
 
@@ -101,10 +104,31 @@
     <script>
       $(function() {
         // Set drag scroll on first descendant of class dragger
-        $('#viewport').
-        dragscrollable({dragSelector: '.dragger:first', acceptPropagatedEvent: false});
+        // $('#viewport').
+        // dragscrollable({dragSelector: '.dragger:first', acceptPropagatedEvent: false});
         var cw = $('#viewport').width();
         $('#viewport').css({'height': cw + 'px'});
+
+        var avatarWidth = 2129;
+        var avatarHeight = 2550;
+
+        var windowWidth = $('#viewport').width();
+        var windowHeight = $('#viewport').height();
+
+        var ratioX = (avatarWidth - windowWidth) / windowWidth;
+        var ratioY = (avatarHeight - windowHeight) / windowHeight;
+
+        function updateImgPosition(e) {
+          var mouseX = e.pageX - $('#viewport').offset().left;
+          var mouseY = e.pageY - $('#viewport').offset().top;
+
+          var imgLeft = ratioX * -mouseX;
+          var imgTop = ratioY * -mouseY;
+
+          $('#viewport').css({'backgroundPosition': imgLeft + "px " + imgTop + "px"});
+        }
+
+        $('#viewport').mousemove(updateImgPosition);
       });
     </script>    
     <script src="assets/js/boostrap.min.js"></script>
