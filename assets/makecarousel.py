@@ -28,7 +28,8 @@ def main():
       fout.write("""<div class="carousel-caption">\n""")
 
       fout.write("""<h3>{title}</h3>\n""".format(**d))
-      fout.write("""<p>{caption}</p>\n""".format(**d))
+      if base != 'photographs':
+        fout.write("""<p>{caption}</p>\n""".format(**d))
       fout.write("""<p>{citation}</p>\n""".format(**d))
 
 
